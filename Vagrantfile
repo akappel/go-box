@@ -12,10 +12,13 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "box-cutter/ubuntu1404-desktop"
   config.vm.provision "shell",
     path:  "go.sh",
     args: ["akappel"]
+  config.vm.provision "shell",
+    path: "go-libretro.sh",
+    privileged: false
   config.vm.synced_folder "go/", "/home/vagrant/go", create: true
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
