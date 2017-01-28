@@ -16,9 +16,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell",
     path:  "go.sh",
     args: ["akappel"]
-  config.vm.provision "shell",
-    path: "libretro-go.sh",
-    privileged: false
   config.vm.synced_folder "go/", "/home/vagrant/go", create: true
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
